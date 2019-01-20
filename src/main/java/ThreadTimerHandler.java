@@ -22,19 +22,19 @@ public class ThreadTimerHandler {
             switch(command) {
 
                 case "start":
-                    runNewThread(command);
+                    runNewThread(input);
                     break;
                 case "exit":
                     exitThreads();
                     break;
                 case "check":
-                    checkThread(command);
+                    checkThread(input);
                     break;
                 case "pause":
-                    pauseThread(command);
+                    pauseThread(input);
                     break;
                 case "resume":
-                    resumeThread(command);
+                    resumeThread(input);
                     break;
 
             }
