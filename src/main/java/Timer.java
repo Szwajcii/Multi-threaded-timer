@@ -26,6 +26,12 @@ public class Timer  implements Runnable{
         Thread.currentThread().interrupt();
     }
 
+    public synchronized void resumeThread(){
+        long endTime = System.nanoTime();
+        this.isThreadRun = true;
+        this.startTime = startTime + (endTime - pasue);
+        this.pasue = 0;
+    }
 
     public void run() {
         this.startTime = System.nanoTime();
