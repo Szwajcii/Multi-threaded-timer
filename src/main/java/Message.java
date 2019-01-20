@@ -1,6 +1,6 @@
 public class Message {
 
-    public static void message(String message) {
+    public static void displayMessage(String message) {
         System.out.println(message);
     }
 
