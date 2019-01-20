@@ -66,7 +66,7 @@ public class ThreadTimerHandler {
             thread.interrupt();
         }
 
-        this.timerList.stream().forEach(s -> s.toString());
+        this.timerList.forEach(s -> s.toString());
         this.timerList.clear();
 
 
