@@ -17,6 +17,11 @@ public class Timer  implements Runnable{
     }
 
 
+    public String getName(){
+        return this.name;
+    }
+
+
     public void run() {
 
     }
