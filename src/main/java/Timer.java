@@ -9,6 +9,7 @@ public class Timer  implements Runnable{
     private long elapsedTime;
     private long pasue = 0;
     private volatile boolean isThreadRun = true;
+    private final int TIME_DIVIDER = 1000000000;
 
 
     public Timer(String name) {
@@ -28,6 +29,14 @@ public class Timer  implements Runnable{
 
     public void run() {
 
+    }
+
+    public void stopTime() {
+
+        long endTime = System.nanoTime();
+
+
+        this.elapsedTime = (endTime - this.startTime) / TIME_DIVIDER;
     }
 
     public String toString(){
