@@ -25,7 +25,7 @@ public class ThreadTimerHandler {
                     runNewThread(command);
                     break;
                 case "exit":
-                    exitThread();
+                    exitThreads();
                     break;
                 case "check":
                     checkThread(command);
@@ -56,6 +56,19 @@ public class ThreadTimerHandler {
         this.timerList.add(timer);
         this.threadList.add(thread);
         thread.start();
+
+    }
+
+
+    private void exitThreads(){
+
+        for(Thread thread : this.threadList){
+            thread.interrupt();
+        }
+
+        this.timerList.stream().forEach(s -> s.toString());
+        this.timerList.clear();
+
 
     }
 
