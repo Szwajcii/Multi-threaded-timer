@@ -28,7 +28,18 @@ public class Timer  implements Runnable{
 
 
     public void run() {
+        this.startTime = System.nanoTime();
 
+        while(true){
+            if(this.isThreadRun){
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException e){
+                    stopTime();
+                    throw new RuntimeException();
+                }
+            }
+        }
     }
 
     public void stopTime() {
