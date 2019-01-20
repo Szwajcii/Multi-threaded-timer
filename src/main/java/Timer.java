@@ -42,6 +42,11 @@ public class Timer  implements Runnable{
         }
     }
 
+    public void pasueTime() {
+        this.isThreadRun = false;
+        this.pasue = System.nanoTime();
+    }
+
     public void stopTime() {
 
         long endTime = System.nanoTime();
