@@ -38,10 +38,47 @@ public class ThreadTimerHandler {
                     break;
 
             }
+        }
+    }
 
+    private void runNewThread(String input) {
+
+        String threadName = InputParser.getValue(input);
+
+        if(checkIfExist(threadName)){
 
         }
 
+
+        Timer timer = new Timer(threadName);
+        Thread thread = new Thread(timer, threadName);
+
+        this.timerList.add(timer);
+        this.threadList.add(thread);
+        thread.start();
+
+    }
+
+
+    private boolean checkIfExist(String threadName){
+
+        for(Thread thread : this.threadList){
+            if(thread.getName().equals(threadName)){
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    private void interruptThread(String threadName){
+
+        for(Timer timer : this.timerList){
+            if(timer.getName().equals(threadName)){
+                timer.interruptThread();
+                this.timerList.remove(timer);
+            }
+        }
 
     }
 
