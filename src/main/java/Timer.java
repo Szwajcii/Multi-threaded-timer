@@ -6,7 +6,7 @@ public class Timer  implements Runnable{
     private int id;
     private static int threadId = 0;
     private long startTime;
-    private long endTime;
+    private long elapsedTime;
     private long pasue = 0;
     private volatile boolean isThreadRun = true;
 
@@ -32,6 +32,6 @@ public class Timer  implements Runnable{
 
     public String toString(){
 
-        return null;
+        return "NAME: " + this.name + ", ThreadId: " + this.id + ", Seconds: " + this.elapsedTime;
     }
 }
