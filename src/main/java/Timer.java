@@ -11,6 +11,11 @@ public class Timer  implements Runnable{
     private volatile boolean isThreadRun = true;
 
 
+    public Timer(String name) {
+        this.name = name;
+    }
+
+
     public void run() {
 
     }
