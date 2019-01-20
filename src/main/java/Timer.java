@@ -21,6 +21,10 @@ public class Timer  implements Runnable{
         return this.name;
     }
 
+    public void interruptThread(){
+        Thread.currentThread().interrupt();
+    }
+
 
     public void run() {
 
