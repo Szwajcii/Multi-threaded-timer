@@ -7,7 +7,7 @@ public class Timer  implements Runnable{
     private static int threadId = 0;
     private long startTime;
     private long elapsedTime;
-    private long pasue = 0;
+    private long pause = 0;
     private volatile boolean isThreadRun = true;
     private final int TIME_DIVIDER = 1000000000;
 
@@ -29,8 +29,8 @@ public class Timer  implements Runnable{
     public synchronized void resumeThread(){
         long endTime = System.nanoTime();
         this.isThreadRun = true;
-        this.startTime = startTime + (endTime - pasue);
-        this.pasue = 0;
+        this.startTime = startTime + (endTime - pause);
+        this.pause = 0;
     }
 
     public void run() {
@@ -50,13 +50,17 @@ public class Timer  implements Runnable{
 
     public void pasueTime() {
         this.isThreadRun = false;
-        this.pasue = System.nanoTime();
+        this.pause = System.nanoTime();
     }
 
     public void stopTime() {
 
         long endTime = System.nanoTime();
 
+        if(this.pause != 0){
+            this.elapsedTime = ((endTime - this.startTime) - (endTime - this.pause)) / TIME_DIVIDER;
+            return;
+        }
 
         this.elapsedTime = (endTime - this.startTime) / TIME_DIVIDER;
     }
